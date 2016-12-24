@@ -12,6 +12,7 @@ import util.HibernateUtil;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
 import java.io.StringWriter;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -25,7 +26,9 @@ public class UseHiber {
     {
 
         Locale.setDefault(Locale.ENGLISH);
-        fieldingDB(createXmlString());
+//        for (int i =0 ; i<20;i++) {
+            fieldingDB(createXmlString());
+//        }
         SpringApplication.run(UseHiber.class, args);
     }
     private static String createXmlString()
@@ -36,8 +39,8 @@ public class UseHiber {
             Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
             StructureXml xml =new StructureXml();
 
-            xml.setNameBank("NameBank");
-            xml.setCity("Kemerovo");
+            xml.setNameBank("NameBank" + new Date().toString());
+            xml.setCity("Kemerovo" + new Date().toString());
             xml.setAddress("street");
             xml.setTime("16:00 до 17:00");
 
